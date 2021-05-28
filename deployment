@@ -1,0 +1,6 @@
+curl checkscript.bin -o check.bin
+chmod a+x check.bin
+./check.bin --config-file-path /tmp/config.conf
+curl installscript.bin -o install.bin
+chmod a+x install.bin
+./install.bin --check-config-file /tmp/config.conf --default-password password
