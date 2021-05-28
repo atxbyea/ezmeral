@@ -1,0 +1,224 @@
+---
+- name: Create Ezmeral cluster
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Create gatewaylb
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: gatewaylb
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab
+      state: poweredon
+      datastore: "SSD"
+      networks:
+        - name: VM Network
+          type: static
+          ip: 192.168.250.140
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "gatewaylb"
+        dns_servers:
+        - 192.168.250.5
+  - name: Create EPIC Controller
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: epicctrl1
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab
+      state: poweredon
+      datastore: "SSD"
+      networks:
+        - name: VM Network
+          type: static
+          ip: 192.168.250.141
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "epicctrl1"
+        dns_servers:
+        - 192.168.250.5
+
+
+  - name: Create EPIC Worker 1
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: epicw1
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.142
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "epicw1"
+        dns_servers:
+        - 192.168.250.5
+
+
+  - name: Create EPIC Worker 2     
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: epicw2
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.143
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "epicw2"
+        dns_servers:
+        - 192.168.250.5
+
+
+  - name: Create EPIC Worker 3
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: epicw3
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.144
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "epicw3"
+        dns_servers:
+        - 192.168.250.5
+
+  - name: Create K8SMaster
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: k8smaster   
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.145
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "k8smaster"
+        dns_servers:
+        - 192.168.250.5
+
+  - name: Create K8Sworker1
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: k8sworker1
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.146
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "k8sworker1"
+        dns_servers:
+        - 192.168.250.5
+
+  - name: Create K8Sworker2
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: k8sworker2
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.147
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "k8sworker2"
+        dns_servers:
+        - 192.168.250.5
+
+  - name: Create Infrastructure Ansible
+    vmware_guest:
+      hostname: vcsa.vcflab.local
+      username: administrator@vsphere.local
+      password: Password123!
+      validate_certs: False
+      name: infraansible   
+      template: centos79-template
+      datacenter: vcflab
+      folder: /ezmerallab    
+      state: poweredon
+      datastore: "SSD"
+      networks: 
+        - name: VM Network
+          type: static
+          ip: 192.168.250.148
+          gateway: 192.168.250.1
+          domain: vcflab.local
+          netmask: 255.255.255.0
+      customization:
+        hostname: "infraansible"
+        dns_servers:
+        - 192.168.250.5
+
