@@ -1,0 +1,2 @@
+yum install open-vm-tools -y
+yum install perl -y
