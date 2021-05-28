@@ -11,10 +11,11 @@
       password: Password123!
       validate_certs: False
       name: gatewaylb
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks:
         - name: VM Network
@@ -22,9 +23,12 @@
           ip: 192.168.250.140
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
-        hostname: "gatewaylb"
+        hostname: gatewaylb
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
   - name: Create EPIC Controller
@@ -34,20 +38,24 @@
       password: Password123!
       validate_certs: False
       name: epicctrl1
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks:
         - name: VM Network
           type: static
           ip: 192.168.250.141
           gateway: 192.168.250.1
+          connected: yes
           domain: vcflab.local
           netmask: 255.255.255.0
       customization:
         hostname: "epicctrl1"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -59,20 +67,24 @@
       password: Password123!
       validate_certs: False
       name: epicw1
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
           type: static
           ip: 192.168.250.142
           gateway: 192.168.250.1
+          connected: yes
           domain: vcflab.local
           netmask: 255.255.255.0
       customization:
         hostname: "epicw1"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -84,10 +96,11 @@
       password: Password123!
       validate_certs: False
       name: epicw2
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -95,9 +108,12 @@
           ip: 192.168.250.143
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "epicw2"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -109,10 +125,11 @@
       password: Password123!
       validate_certs: False
       name: epicw3
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -120,9 +137,12 @@
           ip: 192.168.250.144
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "epicw3"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -133,10 +153,11 @@
       password: Password123!
       validate_certs: False
       name: k8smaster   
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -144,9 +165,12 @@
           ip: 192.168.250.145
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "k8smaster"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -157,10 +181,11 @@
       password: Password123!
       validate_certs: False
       name: k8sworker1
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -168,9 +193,12 @@
           ip: 192.168.250.146
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "k8sworker1"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -181,10 +209,11 @@
       password: Password123!
       validate_certs: False
       name: k8sworker2
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -192,9 +221,12 @@
           ip: 192.168.250.147
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "k8sworker2"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
 
@@ -205,10 +237,11 @@
       password: Password123!
       validate_certs: False
       name: infraansible   
-      template: centos79-template
+      template: ezmeral-template
       datacenter: vcflab
       folder: /ezmerallab    
       state: poweredon
+      cluster: Single
       datastore: "SSD"
       networks: 
         - name: VM Network
@@ -216,9 +249,11 @@
           ip: 192.168.250.148
           gateway: 192.168.250.1
           domain: vcflab.local
+          connected: yes
           netmask: 255.255.255.0
       customization:
         hostname: "infraansible"
+        domain: vcflab.local
+        dns_suffix: vcflab.local
         dns_servers:
         - 192.168.250.5
-
